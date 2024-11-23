@@ -27,17 +27,19 @@ Automatically updates customer details, such as:
 - **Subscription/Preferences**: Subscription plans, marketing preferences.
 
 **Payload Example**:
+
 ```json
-{
-    "customer_id": 123,
-    "name": "John Doe",
-    "email": "john.doe@example.com",
-    "shipping_address": {
-        "street": "123 Main St",
-        "city": "Anytown",
-        "postal_code": "12345"
+    {
+        "customer_id": 123,
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "shipping_address": {
+            "street": "123 Main St",
+            "city": "Anytown",
+            "postal_code": "12345"
     }
-}
+    }
+```
 
 
 ### 2. **Purchase Processing**
@@ -48,20 +50,27 @@ Handles the creation and updating of purchase transactions, including:
 - **Order Status Updates**: Shipping, delivery, and returns.
 
 **Payload Example**:
+
 ```json
-{
-    "purchase_id": 456,
-    "customer_id": 123,
-    "items": [
-        {
-            "product_id": 789,
-            "quantity": 2,
-            "price": 99.99
-        }
-    ],
-    "total_amount": 199.99,
-    "status": "paid"
-}
+    {
+        "purchase_id": 456,
+        "customer_id": 123,
+        "items": [
+            {
+                "product_id": 789,
+                "quantity": 2,
+                "price": 99.99
+            }
+        ],
+        "total_amount": 199.99,
+        "status": "paid"
+    }
+```
+
+
+
+
+
 
 ### 3. **Product Management**
 Easily updates product catalogs with:
@@ -72,13 +81,15 @@ Easily updates product catalogs with:
 
 ### Payload Example:
 ```json
-{
-    "product_id": 789,
-    "name": "Wireless Mouse",
-    "price": 49.99,
-    "stock_quantity": 150,
-    "category": "Electronics"
-}
+    {
+        "product_id": 789,
+        "name": "Wireless Mouse",
+        "price": 49.99,
+        "stock_quantity": 150,
+        "category": "Electronics"
+    }
+```
+
 
 
 ### 4. **Subscription Service Management**
@@ -89,14 +100,16 @@ Manages updates related to subscription services, including:
 - **Status Updates**: Active, paused, or canceled subscriptions.
 
 ### Payload Example:
+
 ```json
-{
-    "subscription_id": 101,
-    "customer_id": 123,
-    "plan": "Premium",
-    "status": "active",
-    "next_billing_date": "2024-12-01"
-}
+    {
+        "subscription_id": 101,
+        "customer_id": 123,
+        "plan": "Premium",
+        "status": "active",
+        "next_billing_date": "2024-12-01"
+    } 
+```
 
 ### 5. **User Activity Tracking**
 Tracks user interactions and activity, such as:
@@ -105,14 +118,17 @@ Tracks user interactions and activity, such as:
 - **Behavioral Analytics**: Product views, cart additions, clickstream data.
 
 ### Payload Example:
+
 ```json
-{
-    "user_id": 123,
-    "activity_type": "login",
-    "timestamp": "2024-11-23T10:15:00Z",
-    "device": "mobile",
-    "ip_address": "192.168.1.1"
-}
+    {
+        "user_id": 123,
+        "activity_type": "login",
+        "timestamp": "2024-11-23T10:15:00Z",
+        "device": "mobile",
+        "ip_address": "192.168.1.1"
+    }
+```
+
 
 ### 6. **Inventory and Stock Management**
 Monitors and updates inventory levels based on:
@@ -123,12 +139,14 @@ Monitors and updates inventory levels based on:
 
 ### Payload Example:
 ```json
-{
-    "product_id": 789,
-    "restocked_quantity": 100,
-    "warehouse_id": 2,
-    "stock_threshold": 20
-}
+    {
+        "product_id": 789,
+        "restocked_quantity": 100,
+        "warehouse_id": 2,
+        "stock_threshold": 20
+    } 
+```
+
 
 ## Installation
 
@@ -140,10 +158,11 @@ Monitors and updates inventory levels based on:
 ### Steps to Deploy
 
 1. **Clone this repository**:
-    ```bash
+    ``` bash
     git clone https://github.com/lia-pires/dataflow-coordinator-lambda.git
     cd dataflow-coordinator-lambda
     ```
+    
 
 2. **Configure AWS credentials**: Make sure your AWS credentials are set up using the AWS CLI or environment variables.
 
@@ -151,6 +170,8 @@ Monitors and updates inventory levels based on:
    Create an SQS queue that will trigger the Lambda function when new messages arrive.
 
    Example (using AWS CLI):
+
+
     ```bash
     aws sqs create-queue --queue-name dataflow-queue
     ```
