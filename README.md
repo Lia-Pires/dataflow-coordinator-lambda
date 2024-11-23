@@ -27,6 +27,7 @@ Automatically updates customer details, such as:
 - **Subscription/Preferences**: Subscription plans, marketing preferences.
 
 **Payload Example**:
+
 ```json
 {
     "customer_id": 123,
@@ -38,6 +39,7 @@ Automatically updates customer details, such as:
         "postal_code": "12345"
     }
 }
+```
 
 
 ### 2. **Purchase Processing**
@@ -48,6 +50,7 @@ Handles the creation and updating of purchase transactions, including:
 - **Order Status Updates**: Shipping, delivery, and returns.
 
 **Payload Example**:
+
 ```json
 {
     "purchase_id": 456,
@@ -62,6 +65,12 @@ Handles the creation and updating of purchase transactions, including:
     "total_amount": 199.99,
     "status": "paid"
 }
+```
+
+
+
+
+
 
 ### 3. **Product Management**
 Easily updates product catalogs with:
@@ -79,6 +88,8 @@ Easily updates product catalogs with:
     "stock_quantity": 150,
     "category": "Electronics"
 }
+```
+
 
 
 ### 4. **Subscription Service Management**
@@ -89,6 +100,7 @@ Manages updates related to subscription services, including:
 - **Status Updates**: Active, paused, or canceled subscriptions.
 
 ### Payload Example:
+
 ```json
 {
     "subscription_id": 101,
@@ -96,7 +108,8 @@ Manages updates related to subscription services, including:
     "plan": "Premium",
     "status": "active",
     "next_billing_date": "2024-12-01"
-}
+} 
+```
 
 ### 5. **User Activity Tracking**
 Tracks user interactions and activity, such as:
@@ -105,6 +118,7 @@ Tracks user interactions and activity, such as:
 - **Behavioral Analytics**: Product views, cart additions, clickstream data.
 
 ### Payload Example:
+
 ```json
 {
     "user_id": 123,
@@ -113,6 +127,8 @@ Tracks user interactions and activity, such as:
     "device": "mobile",
     "ip_address": "192.168.1.1"
 }
+```
+
 
 ### 6. **Inventory and Stock Management**
 Monitors and updates inventory levels based on:
@@ -128,7 +144,9 @@ Monitors and updates inventory levels based on:
     "restocked_quantity": 100,
     "warehouse_id": 2,
     "stock_threshold": 20
-}
+} 
+```
+
 
 ## Installation
 
@@ -140,10 +158,10 @@ Monitors and updates inventory levels based on:
 ### Steps to Deploy
 
 1. **Clone this repository**:
-    ```bash
+    bash
     git clone https://github.com/lia-pires/dataflow-coordinator-lambda.git
     cd dataflow-coordinator-lambda
-    ```
+    
 
 2. **Configure AWS credentials**: Make sure your AWS credentials are set up using the AWS CLI or environment variables.
 
@@ -151,9 +169,9 @@ Monitors and updates inventory levels based on:
    Create an SQS queue that will trigger the Lambda function when new messages arrive.
 
    Example (using AWS CLI):
-    ```bash
+    bash
     aws sqs create-queue --queue-name dataflow-queue
-    ```
+    
 
 4. **Deploy Lambda**:
    Deploy the Lambda function using AWS SAM, Serverless Framework, or CloudFormation.
