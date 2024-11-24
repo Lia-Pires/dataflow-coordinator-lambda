@@ -29,14 +29,26 @@ Automatically updates customer details, such as:
 **Payload Example**:
 
 ```json
-    {
-        "customer_id": 123,
-        "name": "John Doe",
-        "email": "john.doe@example.com",
-        "shipping_address": {
-            "street": "123 Main St",
+    {   
+        "customer_update": true,
+        "address_update" : true,
+        "customer_id": 1,
+        "name": "Lia Pires",
+        "email": "lia.pires@example.com",
+        "phone" : "+5545999999999",
+        "birth_date" : "1992-09-15" ,
+        "address_id" : 1 ,
+        "registration_date" : "2024-11-24 14:30:00",
+        "active" : true ,     
+        "shipping_address": {            
+            "street": "Main St",
+            "number" : "245",
+            "complement" : "Next to the Post Office",
             "city": "Anytown",
-            "postal_code": "12345"
+            "state" : "Anystate",
+            "country" : "Anycountry",
+            "neighborhood" : "That Neighborhood",
+            "postal_code": "67890-1234"
     }
     }
 ```
@@ -52,17 +64,25 @@ Handles the creation and updating of purchase transactions, including:
 **Payload Example**:
 
 ```json
-    {
+    {    
         "purchase_id": 456,
         "customer_id": 123,
+        "purchase_date" : "2024-11-24 14:30:00",
         "items": [
-            {
+            {   
+                "item_id" : 1,
                 "product_id": 789,
                 "quantity": 2,
-                "price": 99.99
+                "unit_price": 99.99
+            },
+            {   
+                "item_id" : 2,
+                "product_id": 452,
+                "quantity": 3,
+                "unit_price": 25.50
             }
         ],
-        "total_amount": 199.99,
+        "total_amount": 276.48,
         "status": "paid"
     }
 ```
@@ -81,37 +101,17 @@ Easily updates product catalogs with:
 
 ### Payload Example:
 ```json
-    {
+    {   
         "product_id": 789,
         "name": "Wireless Mouse",
-        "price": 49.99,
-        "stock_quantity": 150,
+        "product_description" : "A compact, ergonomic device offering seamless connectivity, precision tracking, and long-lasting battery life. Ideal for both work and gaming, it features a sleek design and compatibility with multiple devices via Bluetooth or a USB receiver",
+        "unit_price": 49.99,
+        "stock_quantity": 150,       
         "category": "Electronics"
     }
 ```
 
-
-
-### 4. **Subscription Service Management**
-Manages updates related to subscription services, including:
-
-- **Subscription Plans**: New subscriptions, upgrades, downgrades.
-- **Billing Information**: Billing cycles, next payment date.
-- **Status Updates**: Active, paused, or canceled subscriptions.
-
-### Payload Example:
-
-```json
-    {
-        "subscription_id": 101,
-        "customer_id": 123,
-        "plan": "Premium",
-        "status": "active",
-        "next_billing_date": "2024-12-01"
-    } 
-```
-
-### 5. **User Activity Tracking**
+### 4. **User Activity Tracking**
 Tracks user interactions and activity, such as:
 
 - **Login Events**: Timestamp, IP address, device used.
@@ -120,17 +120,23 @@ Tracks user interactions and activity, such as:
 ### Payload Example:
 
 ```json
-    {
-        "user_id": 123,
-        "activity_type": "login",
-        "timestamp": "2024-11-23T10:15:00Z",
-        "device": "mobile",
-        "ip_address": "192.168.1.1"
+    {   
+        
+        "customer_id": 123,
+        "interaction_id" : 123,
+        "preference_id" : 123,
+        "category" : 123,
+        "notifications" : false,
+        "interaction_type" : "login",
+        "interaction_date" : "2024-11-23T10:15:00Z",
+        "interaction_description" : "User logged in from ip 192.168.1.100",
+        "device" : "mobile",
+        "ip_address": "192.168.1.100"
     }
 ```
 
 
-### 6. **Inventory and Stock Management**
+### 5. **Inventory and Stock Management**
 Monitors and updates inventory levels based on:
 
 - **Stock Restocks**: New inventory shipments.
@@ -142,8 +148,7 @@ Monitors and updates inventory levels based on:
     {
         "product_id": 789,
         "restocked_quantity": 100,
-        "warehouse_id": 2,
-        "stock_threshold": 20
+        "restock_date" : "2024-11-23T10:15:00Z"
     } 
 ```
 
