@@ -1,9 +1,17 @@
-
+import logging
+import os
+from utils import Utils
 
 
 def lambda_handler(event, context):
-    print("Received event:", event)
-    return {
-        'statusCode': 200,
-        'body': 'Lambda function executed successfully!'
-    }
+    logging.info(f"Starting execution...")
+
+    if event:
+        print("Received event:", event)
+        utils = Utils(event)
+        queries = utils.process_data()
+        data = utils.update_db(queries)
+
+        return data
+
+    return {"message: No event was received"}
